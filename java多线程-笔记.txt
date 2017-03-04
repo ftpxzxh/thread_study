@@ -4,12 +4,21 @@
 获取当前线程的名字：Thread.currentThread().getName()
 
 2、定时器的应用
-看类TraditionalTimerTest
+	看类TraditionalTimerTest
 
 3、线程的同步synchronized
-看类TraditionalThreadSynchronized
+	看类TraditionalThreadSynchronized
 
 4、一道面试题目（线程间的通信问题）
 	子线程循环10次，接着主线程循环100，接着又回到子线程循环10次，接着再回到主线程又循环100，如此循环50次，请写出代码
 	
-	TraditionalThreadCommunication
+	1）先实现子线程运行10次，主线程运行100次，如此循环50次；
+	2）使用wait()和notify()实现线程间的通信，使得主线程和子线程交替运行
+	
+	看类TraditionalThreadCommunication
+	
+5、线程内的共享数据（ThreadLocal）
+	问题引入：看类ThreadScopeShareDataHasMistake
+	用ThreadLocal解决线程内的共享数据：看类ThreadScopeShareData
+
+6、

@@ -7,10 +7,9 @@ import java.util.Random;
 //模拟线程间共享数据的底层原理
 public class ThreadScopeShareData {
 
-	private static int data = 0;
-	private static Map<Thread, Integer> threadData = new HashMap<Thread, Integer>();
+	private static Map<Thread, Integer> threadData = new HashMap<Thread, Integer>();//key是代表不同的线程的Thread
 	public static void main(String[] args) {
-		for(int i=0;i<2;i++){
+		for(int i=0;i<2;i++){//启动两个线程
 			new Thread(new Runnable(){
 				@Override
 				public void run() {
