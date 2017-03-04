@@ -1,0 +1,15 @@
+
+1、创建线程的两种方式：
+	看类TraditionalThread
+获取当前线程的名字：Thread.currentThread().getName()
+
+2、定时器的应用
+看类TraditionalTimerTest
+
+3、线程的同步synchronized
+看类TraditionalThreadSynchronized
+
+4、一道面试题目（线程间的通信问题）
+	子线程循环10次，接着主线程循环100，接着又回到子线程循环10次，接着再回到主线程又循环100，如此循环50次，请写出代码
+	
+	TraditionalThreadCommunication
