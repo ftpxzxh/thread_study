@@ -13,17 +13,17 @@ public class CyclicBarrierTest {
 					public void run(){
 					try {
 						Thread.sleep((long)(Math.random()*10000));	
-						System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-								"¼´½«µ½´ï¼¯ºÏµØµã1£¬µ±Ç°ÒÑÓĞ" + (cb.getNumberWaiting()+1) + "¸öÒÑ¾­µ½´ï£¬" + (cb.getNumberWaiting()==2?"¶¼µ½ÆëÁË£¬¼ÌĞø×ß°¡":"ÕıÔÚµÈºò"));						
+						System.out.println("çº¿ç¨‹" + Thread.currentThread().getName() + 
+								"å³å°†åˆ°è¾¾é›†åˆåœ°ç‚¹1ï¼Œå½“å‰å·²æœ‰" + (cb.getNumberWaiting()+1) + "ä¸ªå·²ç»åˆ°è¾¾ï¼Œ" + (cb.getNumberWaiting()==2?"éƒ½åˆ°é½äº†ï¼Œç»§ç»­èµ°å•Š":"æ­£åœ¨ç­‰å€™"));						
 						cb.await();
 						
 						Thread.sleep((long)(Math.random()*10000));	
-						System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-								"¼´½«µ½´ï¼¯ºÏµØµã2£¬µ±Ç°ÒÑÓĞ" + (cb.getNumberWaiting()+1) + "¸öÒÑ¾­µ½´ï£¬" + (cb.getNumberWaiting()==2?"¶¼µ½ÆëÁË£¬¼ÌĞø×ß°¡":"ÕıÔÚµÈºò"));
+						System.out.println("çº¿ç¨‹" + Thread.currentThread().getName() + 
+								"å³å°†åˆ°è¾¾é›†åˆåœ°ç‚¹2ï¼Œå½“å‰å·²æœ‰" + (cb.getNumberWaiting()+1) + "ä¸ªå·²ç»åˆ°è¾¾ï¼Œ" + (cb.getNumberWaiting()==2?"éƒ½åˆ°é½äº†ï¼Œç»§ç»­èµ°å•Š":"æ­£åœ¨ç­‰å€™"));
 						cb.await();	
 						Thread.sleep((long)(Math.random()*10000));	
-						System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-								"¼´½«µ½´ï¼¯ºÏµØµã3£¬µ±Ç°ÒÑÓĞ" + (cb.getNumberWaiting() + 1) + "¸öÒÑ¾­µ½´ï£¬" + (cb.getNumberWaiting()==2?"¶¼µ½ÆëÁË£¬¼ÌĞø×ß°¡":"ÕıÔÚµÈºò"));						
+						System.out.println("çº¿ç¨‹" + Thread.currentThread().getName() + 
+								"å³å°†åˆ°è¾¾é›†åˆåœ°ç‚¹3ï¼Œå½“å‰å·²æœ‰" + (cb.getNumberWaiting() + 1) + "ä¸ªå·²ç»åˆ°è¾¾ï¼Œ" + (cb.getNumberWaiting()==2?"éƒ½åˆ°é½äº†ï¼Œç»§ç»­èµ°å•Š":"æ­£åœ¨ç­‰å€™"));						
 						cb.await();						
 					} catch (Exception e) {
 						e.printStackTrace();

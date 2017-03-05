@@ -13,12 +13,12 @@ public class ExchangerTest {
 				try {				
 
 					String data1 = "zxx";
-					System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-					"ÕıÔÚ°ÑÊı¾İ" + data1 +"»»³öÈ¥");
+					System.out.println("çº¿ç¨‹" + Thread.currentThread().getName() + 
+					"æ­£åœ¨æŠŠæ•°æ®" + data1 +"æ¢å‡ºå»");
 					Thread.sleep((long)(Math.random()*10000));
 					String data2 = (String)exchanger.exchange(data1);
-					System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-					"»»»ØµÄÊı¾İÎª" + data2);
+					System.out.println("çº¿ç¨‹" + Thread.currentThread().getName() + 
+					"æ¢å›çš„æ•°æ®ä¸º" + data2);
 				}catch(Exception e){
 					
 				}
@@ -29,12 +29,12 @@ public class ExchangerTest {
 				try {				
 
 					String data1 = "lhm";
-					System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-					"ÕıÔÚ°ÑÊı¾İ" + data1 +"»»³öÈ¥");
+					System.out.println("çº¿ç¨‹" + Thread.currentThread().getName() + 
+					"æ­£åœ¨æŠŠæ•°æ®" + data1 +"æ¢å‡ºå»");
 					Thread.sleep((long)(Math.random()*10000));					
 					String data2 = (String)exchanger.exchange(data1);
-					System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-					"»»»ØµÄÊı¾İÎª" + data2);
+					System.out.println("çº¿ç¨‹" + Thread.currentThread().getName() + 
+					"æ¢å›çš„æ•°æ®ä¸º" + data2);
 				}catch(Exception e){
 					
 				}				
