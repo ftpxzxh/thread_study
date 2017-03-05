@@ -58,13 +58,15 @@ public class ThreadLocalTest {
 		}		
 	}
 }
+
+//有点类似于单例的模式，懒汉式
 //线程范围内共享的对象的设计，这个对象是专门与线程绑定而存在的。
 //用户不需要特别的为每个线程去创建一个对象，而是有这个共享对象内部实现。
 //只要调用一下这个类的某个方法就可以得到与线程绑定的共享对象
 class MyThreadScopeData{
 	private MyThreadScopeData(){}
 	//获取线程间的共享的MyThreadScopeData对象
-	public static /*synchronized*/ MyThreadScopeData getThreadInstance(){//不需要加锁
+	public static /*synchronized*/ MyThreadScopeData getThreadInstance(){//不需要加锁，getThreadInstance这个命名，让调用者可以很明白的知道，他获取的是与当前线程相关的实例对象
 		MyThreadScopeData instance = map.get();//每个线程拿的是各自的对象，所以可以不加同步锁
 		if(instance == null){//线程内共享的对象为空，则创建，并把共享对象放入各自的线程中
 			instance = new MyThreadScopeData();

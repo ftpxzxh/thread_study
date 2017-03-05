@@ -18,7 +18,7 @@ public class CallableAndFuture {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ExecutorService threadPool =  Executors.newSingleThreadExecutor();//¿ÉÒÔÄÃµ½Ïß³ÌÖ´ĞĞºóµÄ½á¹û
+		ExecutorService threadPool =  Executors.newSingleThreadExecutor();//å¯ä»¥æ‹¿åˆ°çº¿ç¨‹æ‰§è¡Œåçš„ç»“æœ
 		Future<String> future =
 			threadPool.submit(
 				new Callable<String>() {
@@ -28,9 +28,9 @@ public class CallableAndFuture {
 					};
 				}
 		);
-		System.out.println("µÈ´ı½á¹û");
+		System.out.println("ç­‰å¾…ç»“æœ");
 		try {
-			System.out.println("ÄÃµ½½á¹û£º" + future.get());
+			System.out.println("æ‹¿åˆ°ç»“æœï¼š" + future.get());
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,7 +40,7 @@ public class CallableAndFuture {
 		}
 		
 		ExecutorService threadPool2 =  Executors.newFixedThreadPool(10);
-		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(threadPool2);//ÏòÏß³ÌÌá½»Ò»×éÈÎÎñ£¬Ïß³ÌÓĞ½á¹ûµÄÊ±ºò¾ÍÈ¡³ö½á¹û¡£ÏÈÖ´ĞĞÍêµÄ½á¹ûÏÈÈ¡³ö
+		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(threadPool2);//å‘çº¿ç¨‹æäº¤ä¸€ç»„ä»»åŠ¡ï¼Œçº¿ç¨‹æœ‰ç»“æœçš„æ—¶å€™å°±å–å‡ºç»“æœã€‚å…ˆæ‰§è¡Œå®Œçš„ç»“æœå…ˆå–å‡º
 		for(int i=1;i<=10;i++){
 			final int seq = i;
 			completionService.submit(new Callable<Integer>() {

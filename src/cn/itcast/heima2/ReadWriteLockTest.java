@@ -32,7 +32,7 @@ public class ReadWriteLockTest {
 }
 
 class Queue3{
-	private Object data = null;//¹²ÏíÊı¾İ£¬Ö»ÄÜÓĞÒ»¸öÏß³ÌÄÜĞ´¸ÃÊı¾İ£¬µ«¿ÉÒÔÓĞ¶à¸öÏß³ÌÍ¬Ê±¶Á¸ÃÊı¾İ¡£
+	private Object data = null;//å…±äº«æ•°æ®ï¼Œåªèƒ½æœ‰ä¸€ä¸ªçº¿ç¨‹èƒ½å†™è¯¥æ•°æ®ï¼Œä½†å¯ä»¥æœ‰å¤šä¸ªçº¿ç¨‹åŒæ—¶è¯»è¯¥æ•°æ®ã€‚
 	ReadWriteLock rwl = new ReentrantReadWriteLock();
 	public void get(){
 		rwl.readLock().lock();

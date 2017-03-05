@@ -9,7 +9,7 @@
 3、线程的同步synchronized
 	看类TraditionalThreadSynchronized
 
-4、一道面试题目（线程间的通信问题）
+4、一道面试题目（线程间的通信问题，wait()和notify()）
 	子线程循环10次，接着主线程循环100，接着又回到子线程循环10次，接着再回到主线程又循环100，如此循环50次，请写出代码
 	
 	1）先实现子线程运行10次，主线程运行100次，如此循环50次；
@@ -19,6 +19,64 @@
 	
 5、线程内的共享数据（ThreadLocal）
 	问题引入：看类ThreadScopeShareDataHasMistake
-	用ThreadLocal解决线程内的共享数据：看类ThreadScopeShareData
+	ThreadLocal的原理：看类ThreadScopeShareData
+	ThreadLocal的使用和设计：ThreadLocalTest
 
-6、
+6、面试题目（多个线程访问共享数据）
+	面试宝典28、设计4个线程，其中两个线程每次对j加1，另外两个线程每次对j减1，写出程序
+	看类MultiThreadShareData
+
+以上是java5之前的多线程知识
+
+java5以后的线程新知识
+1、java5原子性操作类的应用-atomic
+	AtomicInteger、AtomicIntegerArray、AtomicIntegerFieldUpdater
+
+2、线程池Executors
+	看类ThreadPoolTest
+	
+3、Callable与Future的应用
+	看类CallableAndFuture
+	
+4、Lock
+	看类LockTest，介绍了ReentrantLock的使用
+	看类ReadWriteLockTest，介绍了ReadWriteLock接口和其子类ReentrantReadWriteLock的使用
+	面试题目：设计一个缓存系统 看类CacheDemo
+	示例用法。下面的代码展示了如何利用重入来执行升级缓存后的锁降级（为简单起见，省略了异常处理）： 
+
+JDK中的ReentrantReadWriteLock文档中有这么一段示例代码
+ class CachedData {
+   Object data;
+   volatile boolean cacheValid;
+   ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+
+   void processCachedData() {
+     rwl.readLock().lock();
+     if (!cacheValid) {
+        // Must release read lock before acquiring write lock
+        rwl.readLock().unlock();
+        rwl.writeLock().lock();
+        // Recheck state because another thread might have acquired
+        //   write lock and changed state before we did.
+        if (!cacheValid) {
+          data = ...
+          cacheValid = true;
+        }
+        // Downgrade by acquiring read lock before releasing write lock
+        rwl.readLock().lock();
+        rwl.writeLock().unlock(); // Unlock write, still hold read
+     }
+
+     use(data);
+     rwl.readLock().unlock();
+   }
+ }
+ 第一次读的时候，上读锁，使得写的线程不能进来；
+但是第一次读的时候发现cacheValid是false，即还没有缓存，所以就先把读锁释放，然后上写锁；
+如果读锁切换成写锁的过程中，缓存cacheValid还是false，表示没有其他线程缓存过，这时候就在加写锁的情况下进行数据的缓存，缓存完成后，就把缓存标志位变为true，最后上读锁，并把写锁释放；
+然后就可以使用缓存数据了，使用完成后，就把读锁释放掉
+	
+
+	
+
+	
