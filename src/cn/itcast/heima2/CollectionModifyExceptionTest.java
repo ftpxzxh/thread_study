@@ -8,14 +8,14 @@ public class CollectionModifyExceptionTest {
 		Collection users = new CopyOnWriteArrayList();
 			
 			//new ArrayList();
-		users.add(new User("张三",28));	
-		users.add(new User("李四",25));			
-		users.add(new User("王五",31));	
+		users.add(new User("寮犱笁",28));	
+		users.add(new User("鏉庡洓",25));			
+		users.add(new User("鐜嬩簲",31));	
 		Iterator itrUsers = users.iterator();
 		while(itrUsers.hasNext()){
 			System.out.println("aaaa");
 			User user = (User)itrUsers.next();
-			if("李四".equals(user.getName())){
+			if("鏉庡洓".equals(user.getName())){
 				users.remove(user);
 				//itrUsers.remove();
 			} else {

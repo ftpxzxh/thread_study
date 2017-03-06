@@ -3,7 +3,13 @@ package read;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class Test {
+/**
+ * ç¬¬ä¸€é¢˜ï¼šç°æœ‰çš„ç¨‹åºä»£ç æ¨¡æ‹Ÿäº§ç”Ÿäº†16ä¸ªæ—¥å¿—å¯¹è±¡ï¼Œå¹¶ä¸”éœ€è¦è¿è¡Œ16ç§’æ‰èƒ½æ‰“å°å®Œè¿™äº›æ—¥å¿—ï¼Œ
+ * è¯·åœ¨ç¨‹åºä¸­å¢åŠ 4ä¸ªçº¿ç¨‹å»è°ƒç”¨parseLog()æ–¹æ³•æ¥åˆ†å¤´æ‰“å°è¿™16ä¸ªæ—¥å¿—å¯¹è±¡ï¼Œç¨‹åºåªéœ€è¦è¿è¡Œ4ç§’å³å¯æ‰“å°å®Œè¿™äº›æ—¥å¿—å¯¹è±¡
+ * @author Administrator
+ *
+ */
+public class Test1 {
 	
 	public static void main(String[] args){
         final BlockingQueue<String> queue = new ArrayBlockingQueue<String>(1);
@@ -26,11 +32,11 @@ public class Test {
 		}
 		
 		System.out.println("begin:"+(System.currentTimeMillis()/1000));
-		/*Ä£Äâ´¦Àí16ĞĞÈÕÖ¾£¬ÏÂÃæµÄ´úÂë²úÉúÁË16¸öÈÕÖ¾¶ÔÏó£¬µ±Ç°´úÂëĞèÒªÔËĞĞ16Ãë²ÅÄÜ´òÓ¡ÍêÕâĞ©ÈÕÖ¾¡£
-		ĞŞ¸Ä³ÌĞò´úÂë£¬¿ªËÄ¸öÏß³ÌÈÃÕâ16¸ö¶ÔÏóÔÚ4ÃëÖÓ´òÍê¡£
+		/*æ¨¡æ‹Ÿå¤„ç†16è¡Œæ—¥å¿—ï¼Œä¸‹é¢çš„ä»£ç äº§ç”Ÿäº†16ä¸ªæ—¥å¿—å¯¹è±¡ï¼Œå½“å‰ä»£ç éœ€è¦è¿è¡Œ16ç§’æ‰èƒ½æ‰“å°å®Œè¿™äº›æ—¥å¿—ã€‚
+		ä¿®æ”¹ç¨‹åºä»£ç ï¼Œå¼€å››ä¸ªçº¿ç¨‹è®©è¿™16ä¸ªå¯¹è±¡åœ¨4ç§’é’Ÿæ‰“å®Œã€‚
 		*/
-		for(int i=0;i<16;i++){  //ÕâĞĞ´úÂë²»ÄÜ¸Ä¶¯
-			final String log = ""+(i+1);//ÕâĞĞ´úÂë²»ÄÜ¸Ä¶¯
+		for(int i=0;i<16;i++){  //è¿™è¡Œä»£ç ä¸èƒ½æ”¹åŠ¨
+			final String log = ""+(i+1);//è¿™è¡Œä»£ç ä¸èƒ½æ”¹åŠ¨
 			{
 					try {
 						queue.put(log);
@@ -43,7 +49,7 @@ public class Test {
 		}
 	}
 	
-	//parseLog·½·¨ÄÚ²¿µÄ´úÂë²»ÄÜ¸Ä¶¯
+	//parseLogæ–¹æ³•å†…éƒ¨çš„ä»£ç ä¸èƒ½æ”¹åŠ¨
 	public static void parseLog(String log){
 		System.out.println(log+":"+(System.currentTimeMillis()/1000));
 		
