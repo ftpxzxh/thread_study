@@ -74,12 +74,12 @@ class TestDo {
 
 			for(Iterator iter=keys.iterator();iter.hasNext();){
 				try {
-					Thread.sleep(20);
+					Thread.sleep(20);//用于测试迭代的时候，往集合里面加东西的影响
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				Object oo = iter.next();
+				Object oo = iter.next();//迭代的时候不能往集合里面加东西
 				if(oo.equals(o)){
 					o = oo;
 					break;
